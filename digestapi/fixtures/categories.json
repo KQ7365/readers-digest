@@ -1,0 +1,27 @@
+[
+  {
+    "model": "digestapi.category",
+    "pk": 1,
+    "name": "mystery"
+  },
+  {
+    "model": "digestapi.category",
+    "pk": 2,
+    "name": "scifi"
+  },
+  {
+    "model": "digestapi.category",
+    "pk": 3,
+    "name": "fantasy"
+  },
+  {
+    "model": "digestapi.category",
+    "pk": 4,
+    "name": "action"
+  },
+  {
+    "model": "digestapi.category",
+    "pk": 5,
+    "name": "comedy"
+  }
+]
