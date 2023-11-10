@@ -2,26 +2,36 @@
   {
     "model": "digestapi.category",
     "pk": 1,
-    "name": "mystery"
+    "fields": {
+      "name": "mystery"
+    }
   },
   {
     "model": "digestapi.category",
     "pk": 2,
-    "name": "scifi"
+    "fields": {
+      "name": "biography"
+    }
   },
   {
     "model": "digestapi.category",
     "pk": 3,
-    "name": "fantasy"
+    "fields": {
+      "name": "science fiction"
+    }
   },
   {
     "model": "digestapi.category",
     "pk": 4,
-    "name": "action"
+    "fields": {
+      "name": "US history"
+    }
   },
   {
     "model": "digestapi.category",
     "pk": 5,
-    "name": "comedy"
+    "fields": {
+      "name": "world history"
+    }
   }
 ]
