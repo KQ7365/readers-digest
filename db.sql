@@ -1,1 +1,3 @@
-DELETE FROM digestapi_book;
+
+
+DELETE FROM digestapi_review;
