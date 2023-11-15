@@ -1,10 +1,21 @@
 from rest_framework import viewsets, status, serializers, permissions
 from rest_framework.response import Response
 from digestapi.models import Review, Book
+from django.contrib.auth.models import User
+
+class ReviewBookSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = ['title', 'id']
+class UserNameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name']
 
 class ReviewSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
-
+    book = ReviewBookSerializer(many=False)
+    user = UserNameSerializer(many=False)
     def get_is_owner(self, obj):
         # Check if the user is the owner of the review
         return self.context['request'].user == obj.user
@@ -13,6 +24,10 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = Review
         fields = ['id', 'book', 'user', 'rating', 'comment', 'date', 'is_owner']
         read_only_fields = ['user']
+
+   
+
+
 
 
 class ReviewViewSet(viewsets.ViewSet):
@@ -27,7 +42,7 @@ class ReviewViewSet(viewsets.ViewSet):
         return Response(serializer.data)
 
     def create(self, request):
-        book_reviewed = Book.objects.get(pk=request.data['book_id'])
+        book_reviewed = Book.objects.get(pk=request.data['book'])
         # Create a new instance of a review and assign property
         review = Review()
        
